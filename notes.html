@@ -1,0 +1,11 @@
+$query = "SELECT * FROM products";
+
+$result = mysqli_query($conn, $query); //hold all data from the SQL query
+
+if (!$result) {
+    die("Database query failed: " . mysqli_error($conn));
+}
+return $result;
+}
+
+$product = getProducts($conn);

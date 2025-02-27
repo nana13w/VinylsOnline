@@ -1,0 +1,2 @@
+const trustpilot_trustbox_settings = {"trustboxes":[],"activeTrustbox":0,"pageUrls":{"landing":"https://esprit-international-limited.myshopify.com","category":"https://esprit-international-limited.myshopify.com/collections/d-train-1","product":"https://esprit-international-limited.myshopify.com/products/heart-of-hearts-uk-12-inch-vinyl-picture-disc-record-wap218-390584"}};
+dispatchEvent(new CustomEvent('trustpilotTrustboxSettingsLoaded'));

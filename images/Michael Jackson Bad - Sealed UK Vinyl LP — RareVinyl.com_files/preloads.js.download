@@ -1,0 +1,72 @@
+
+    (function() {
+      var baseURL = "https://cdn.shopify.com/shopifycloud/checkout-web/assets/";
+      var scripts = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.a9653fb751df779a9cdb.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/5607.latest.en.288fe1b328d804d0e0ac.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/9017.latest.en.1a05bb23ef38148f678e.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/490.latest.en.448ad99640fafacbd71b.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.ff6239ed4a2cf106d727.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/4100.latest.en.8e7cc044415897fd13ea.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/9641.latest.en.91137cd0ec531239ff9d.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/2980.latest.en.5519a2809e5a9b6c3b74.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/794.latest.en.f8a7f2bbf7aef3e0f8bf.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/9890.latest.en.c95c37f41028f89625fc.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/7683.latest.en.436ac1857212168c619a.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/8024.latest.en.7b6d923dd984a1ee0792.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/8217.latest.en.874f5cc90fe31996455d.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/3586.latest.en.e780ae349e24f011d691.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/OnePage.latest.en.cc0fea2233c513b9f682.js"];
+      var styles = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/5607.latest.en.8df54a64c8a27e007d00.css","https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.8bb004feb2aa35e02d5d.css","https://cdn.shopify.com/shopifycloud/checkout-web/assets/6268.latest.en.f39ddd9f2fb7597dd7bf.css"];
+      var fontPreconnectUrls = [];
+      var fontPrefetchUrls = [];
+      var imgPrefetchUrls = ["https://cdn.shopify.com/s/files/1/0566/5105/5295/files/RareVinyl.com_Checkout_Header_including_15_000_5_Star_Trustpilot_Reviews_copy_x320.png?v=1714379331"];
+
+      function preconnect(url, callback) {
+        var link = document.createElement('link');
+        link.rel = 'dns-prefetch preconnect';
+        link.href = url;
+        link.crossOrigin = '';
+        link.onload = link.onerror = callback;
+        document.head.appendChild(link);
+      }
+
+      function preconnectAssets() {
+        var resources = [baseURL].concat(fontPreconnectUrls);
+        var index = 0;
+        (function next() {
+          var res = resources[index++];
+          if (res) preconnect(res, next);
+        })();
+      }
+
+      function prefetch(url, as, callback) {
+        var link = document.createElement('link');
+        if (link.relList.supports('prefetch')) {
+          link.rel = 'prefetch';
+          link.fetchPriority = 'low';
+          link.as = as;
+          if (as === 'font') link.type = 'font/woff2';
+          link.href = url;
+          link.crossOrigin = '';
+          link.onload = link.onerror = callback;
+          document.head.appendChild(link);
+        } else {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);
+          xhr.onloadend = callback;
+          xhr.send();
+        }
+      }
+
+      function prefetchAssets() {
+        var resources = [].concat(
+          scripts.map(function(url) { return [url, 'script']; }),
+          styles.map(function(url) { return [url, 'style']; }),
+          fontPrefetchUrls.map(function(url) { return [url, 'font']; }),
+          imgPrefetchUrls.map(function(url) { return [url, 'image']; })
+        );
+        var index = 0;
+        (function next() {
+          var res = resources[index++];
+          if (res) prefetch(res[0], res[1], next);
+        })();
+      }
+
+      function onLoaded() {
+        preconnectAssets();
+        prefetchAssets();
+      }
+
+      if (document.readyState === 'complete') {
+        onLoaded();
+      } else {
+        addEventListener('load', onLoaded);
+      }
+    })();
+  

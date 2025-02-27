@@ -1,0 +1,100 @@
+function regularScrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+function smoothScrollToTop() {
+    window.scroll({top: 0, left: 0, behavior: 'smooth'});
+}
+
+function fadeOut() {
+    var el = document.getElementById('effectiveAppsScrollToTopBtn');
+    el.style.opacity = 1;
+    (function fade() {
+        if ((el.style.opacity -= .1) < 0) {
+            el.style.display = "none";
+        } else {
+            requestAnimationFrame(fade);
+        }
+    })();
+};
+
+function fadeIn(time) {
+  var el = document.getElementById('effectiveAppsScrollToTopBtn');
+  el.style.opacity = 0;
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity + (new Date() - last) / time;
+    last = +new Date();
+
+    if (+el.style.opacity < 1) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    }
+    else {
+        el.style.display = "block";
+    }
+  };
+
+  tick();
+}
+
+function loadSmoothScrollPolyfill(callback) {
+    var script = document.createElement('script');
+    script.src = 'https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js';
+    var head = document.getElementsByTagName('head')[0],
+    done = false;
+    head.appendChild(script);
+    script.onload = script.onreadystatechange = function() {
+        if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+            done = true;
+            callback();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+    };
+}
+
+function CSTT_main() {
+    console.log('%c------ Colorful Scroll To Top Button by Effective Apps is Initializing ------', 'color: cyan');
+    console.log('%c------ Contact us at support@effectify.co for help and questions about the app ------', 'color: cyan');
+    var css = '.js-drawer-open #effectiveAppsScrollToTopBtn { display: none !important; } #effectiveAppsScrollToTopBtn{fill: #C3C3C3; fill-rule: evenodd;} #effectiveAppsScrollToTopBtn:hover {fill: #000000; fill-rule: evenodd;}';
+    var head = document.head || document.getElementsByTagName('head')[0], style = document.createElement('style');
+    document.head.appendChild(style);
+    style.innerHTML = css;
+    if (window.CSTT_SCRIPT_INJECTED === undefined) {
+        window.CSTT_SCRIPT_INJECTED = true;
+        if ('2' === '1') {
+            if (ShopifyAnalytics.meta.page.pageType !== "home") {
+                return;
+            }
+        }
+        else if ('3' === '1') {
+            if (ShopifyAnalytics.meta.page.pageType !== "product") {
+                return;
+            }
+        }
+        else if ('4' === '1') {
+            if (ShopifyAnalytics.meta.page.pageType !== "collection") {
+                return;
+            }
+        }
+
+        var scrollerConrainerElement = document.createElement('div');
+        scrollerConrainerElement.innerHTML = '<svg width="52px" height="52px" role="button" aria-label="Scroll to Top" id="effectiveAppsScrollToTopBtn" onclick="smoothScrollToTop()" style="width: 52px !important; height: 52px !important; display: none; pointer-events: all !important; cursor: pointer; position: fixed; z-index: 100021; right: 30px; bottom: 90px !important; margin: 0px; padding: 0px; background-color: transparent; " version="1.1" viewBox="0 0 16 16" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill-rule="evenodd" stroke="none" stroke-width="1"><g transform="translate(0.000000, -144.000000)"><path d="M6,151 L6,157 L10,157 L10,151 L12,151 L8,146 L4,151 L6,151 L6,151 Z M8,160 C3.5,160 0,156.5 0,152 C0,147.5 3.5,144 8,144 C12.5,144 16,147.5 16,152 C16,156.5 12.5,160 8,160 L8,160 Z M8,160" id="Shape"/></g></g></svg>';
+        document.body.appendChild(scrollerConrainerElement);
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50 && document.getElementById('effectiveAppsScrollToTopBtn').style.display === "none") {
+                fadeIn(300);
+            } else if (window.scrollY < 50 && document.getElementById('effectiveAppsScrollToTopBtn').style.display === "block") {
+                fadeOut();
+            }
+        }, false);
+    }
+}
+
+if ('scrollBehavior' in document.documentElement.style) {
+    CSTT_main();
+}
+else {
+    loadSmoothScrollPolyfill(CSTT_main);
+}
