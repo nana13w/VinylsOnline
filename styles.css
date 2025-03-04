@@ -243,7 +243,7 @@
     display: none;
     flex-direction: column;
     cursor: pointer;
-    margin-right: 40px;
+    margin-right: 15px;
   }
 
   .hamburger span {
@@ -415,7 +415,6 @@
 
   .pairs {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 20px;
@@ -593,7 +592,7 @@
     padding-left: 20px;
     margin: 0px;
     position: relative;
-    z-index: 1; 
+    z-index: 1;
   }
 
   .accountField:hover {
@@ -614,19 +613,19 @@
 
   }
 
-  .accountField + hr {
-    margin-top: -20px; 
+  .accountField+hr {
+    margin-top: -20px;
     margin-bottom: -20px;
-}
+  }
 
-.errorMessage {
-  font-size: 0.8em;
-  color: red; 
-  margin-top: -20px;
-  margin-bottom: 20px;
-  font-weight: 700;
-  text-align: center;
-}
+  .errorMessage {
+    font-size: 0.8em;
+    color: red;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
 
   footer {
     background-color: black;
@@ -826,6 +825,10 @@
   }
 
   @media (max-width: 676px) {
+    .discount {
+      font-size: 1.0em;
+  }
+  
     nav {
       flex-direction: column;
     }
@@ -838,4 +841,144 @@
       width: 100%;
       /* Full width for smaller screens */
     }
+
+    .eachVinylProducts,
+    a {
+      margin: 0;
+    }
+
+    .eachVinylProducts {
+      margin: 22px;
+    }
+  }
+
+  @media (max-width: 512px) {
+
+    .discount {
+      font-size: 0.9em;
+  }
+
+    .pairs {
+      justify-content: center;
+    }
+
+    .eachVinylProducts,
+    a {
+      margin: 0;
+    }
+
+  }
+
+  @media (max-width: 478px) {
+
+    .discount {
+      font-size: 0.5em;
+      word-spacing: 0.1px;
+  }
+
+    .search_login {
+      gap: 0;
+      flex-direction: column;
+      padding-top: 15px;
+      align-items: flex-end;
+    }
+
+    .search_login,
+    .buttons {
+      font-size: 14px;
+    }
+
+    .top {
+      height: 154px;
+      padding-top: 0px;
+    }
+
+    .searchContainer {
+      font-size: 0.8em;
+      width: 100px;
+      margin-right: 15px;
+    }
+
+    .searchBox button,
+    .keepBtn {
+      font-size: 15px;
+    }
+
+    .logo {
+      margin-top: 2px;
+      padding-left: 2px;
+    }
+  }
+
+
+  @media (max-width: 390px) {
+    .eachVinylProducts,
+    a {
+      margin: 5px;
+    }
+    
+    .eachVinylProducts {
+      margin: 22px;
+    }
+  }
+
+  @media (max-width: 330px) {
+    .logo {
+      width: 80px;
+    }
+
+    .icons {
+      width: 100vw;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 5px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .icons img {
+      width: 55px;
+        height: 55px;
+        padding: 15px;
+        
+    }
+  }
+
+  @media (max-width: 320px) {
+    .logo {
+      width: 70px;
+    }
+
+    .search_login {
+      gap: 5px;
+    }
+  }
+
+  @media (max-width: 288px) {
+
+    .searchContainer {
+      font-size: 0.7em;
+      width: 90px;
+      margin-right: 15px;
+    }
+
+    .search_login, .buttons {
+      font-size: 11px;
+  }
+
+    .searchBox button,
+    .keepBtn {
+      font-size: 10px;
+    }
+
+    .logo {
+      width: 50px;
+    }
+
+    .hamburger span {
+      width: 15px;
+      height: 1px;
+      margin: 2px;
+    }
+
   }
