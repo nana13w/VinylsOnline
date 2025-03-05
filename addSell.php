@@ -79,9 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["albumCover"]) && $_F
     if (mysqli_stmt_execute($stmt)) {
         echo "Vinyl added for sell";
 
-        $productID = mysqli_insert_id($conn);
+        $id = mysqli_insert_id($conn);
         
-        header("Location: productDetails.php?id=$productID");
+        header("Location: productDetails.php?id=$id");
         exit();
     } else {
         echo "Erros: " . mysqli_error($conn);

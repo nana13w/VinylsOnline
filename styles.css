@@ -83,7 +83,7 @@
     flex-direction: column;
     align-items: flex-end;
     margin-top: 5px;
-width: 80%;
+    width: 80%;
   }
 
   .search_login {
@@ -110,7 +110,7 @@ width: 80%;
   .searchBox {
     position: relative;
     display: flex;
-  } 
+  }
 
   .searchBox input {
     width: 400px;
@@ -334,7 +334,7 @@ width: 80%;
     cursor: pointer;
   }
 
-  
+
 
   .loginButton:hover,
   .registerBtn:hover,
@@ -376,8 +376,8 @@ width: 80%;
   }
 
   .linksLogin {
-gap: 0;
-margin-right: 5px;
+    gap: 0;
+    margin-right: 10px;
   }
 
   .loginIcon {
@@ -409,6 +409,7 @@ margin-right: 5px;
     flex-direction: column;
     justify-content: space-evenly;
     width: auto;
+    align-items: center
   }
 
   .newVinylsImages {
@@ -473,13 +474,15 @@ margin-right: 5px;
   }
 
   .largeImg {
-    width: 30%;
+    max-width: 400px;
+    width: auto;
   }
 
   .details {
     display: flex;
-    flex-wrap: nowrap;
+    justify-content: center;
     margin: 30px;
+    width: 90%;
   }
 
   .leftProduct {
@@ -627,6 +630,13 @@ margin-right: 5px;
   .accountField+hr {
     margin-top: -20px;
     margin-bottom: -20px;
+  }
+
+  .notAccess {
+    color: #5c5858;
+    text-transform: lowercase;
+    font-style: italic;
+    letter-spacing: 0;
   }
 
   .errorMessage {
@@ -840,8 +850,8 @@ margin-right: 5px;
   @media (max-width: 676px) {
     .discount {
       font-size: 1.0em;
-  }
-  
+    }
+
     nav {
       flex-direction: column;
     }
@@ -877,11 +887,11 @@ margin-right: 5px;
 
     .discount {
       font-size: 0.9em;
-  }
+    }
 
-  h2 {
-    font-size: 20px;
-  }
+    h2 {
+      font-size: 20px;
+    }
 
     .pairs {
       justify-content: center;
@@ -903,7 +913,7 @@ margin-right: 5px;
     .discount {
       font-size: 0.5em;
       word-spacing: 0.1px;
-  }
+    }
 
     .top {
       height: 154px;
@@ -918,15 +928,21 @@ margin-right: 5px;
     .searchContainer input {
       width: 250px;
     }
+
+    .largeImg {
+      max-width: 300px;
+      width: auto;
+  }
   }
 
 
   @media (max-width: 390px) {
+
     .eachVinylProducts,
     a {
       margin: 5px;
     }
-    
+
     .eachVinylProducts {
       margin: 22px;
     }
@@ -937,11 +953,12 @@ margin-right: 5px;
 
     .pairs {
       flex-direction: column;
-  }
+      align-items: center;
+    }
 
-  .dataInput {
-    width: 270px;
-  }
+    .dataInput {
+      width: 270px;
+    }
 
   }
 
@@ -961,8 +978,8 @@ margin-right: 5px;
 
     .icons img {
       width: 55px;
-        height: 55px;
-        padding: 15px;
+      height: 55px;
+      padding: 15px;
     }
 
     .top {
@@ -973,7 +990,7 @@ margin-right: 5px;
 
     #nav-menu {
       top: 37%;
-        right: 0%;
+      right: 0%;
     }
 
     .rightTop {
@@ -981,12 +998,16 @@ margin-right: 5px;
     }
 
     .buttons {
-       font-size: 10px;
+      font-size: 10px;
     }
 
     .dataInput {
       width: 230px;
     }
+    .largeImg {
+      max-width: 200px;
+      width: auto;
+  }
   }
 
   @media (max-width: 320px) {
@@ -1003,7 +1024,7 @@ margin-right: 5px;
 
     .searchContainer {
       margin-right: 0px;
-  }
+    }
 
     .searchContainer input {
       width: 170px;
@@ -1011,35 +1032,36 @@ margin-right: 5px;
 
     .linksLogin {
       margin-right: 0px;
-  }
+    }
 
-  .smallLogin{
-    padding-right: 0 !important;
-  }
+    .smallLogin {
+      padding-right: 0 !important;
+    }
 
     .hamburger {
-    margin-right: 0px;
-  }
+      margin-right: 0px;
+    }
 
-  .icons {
-    margin: 0;
-  }
+    .icons {
+      margin: 0;
+    }
 
-  .icons img {
-    width: 38px;
-    height: 38px;
-    padding: 5px;
-}
+    .icons img {
+      width: 38px;
+      height: 38px;
+      padding: 5px;
+    }
 
-.eachVinylProducts {
-  margin: 0;
-}
+    .eachVinylProducts {
+      margin: 0;
+    }
 
-.registerForm, .sellForm {
-  width: 225px;
-}
+    .registerForm,
+    .sellForm {
+      width: 225px;
+    }
 
-.dataInput {
-  width: 180px;
-}
+    .dataInput {
+      width: 180px;
+    }
   }
