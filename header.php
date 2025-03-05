@@ -17,13 +17,13 @@ session_start();
                     </form>
                 </div>
 
-                <div class="buttons">
+                <div class="linksLogin buttons">
                     <?php if (isset($_SESSION["email"])): ?>
-                        <button class="logoutBtn smallLogin">Logout</button>
+                        <a class="logoutBtn smallLogin">Logout</a>
 
                     <?php else: ?>
-                        <button class="loginButton smallLogin">Login</button>
-                        <button class="registerBtn smallLogin"> Register</button>
+                        <a class="loginButton smallLogin">Login</a>
+                        <a class="registerBtn smallLogin"> Register</a>
                     <?php endif; ?>
                     <div class="buttons">
                     </div>

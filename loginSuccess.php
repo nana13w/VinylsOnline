@@ -51,12 +51,11 @@
 
         <section>
 
-
-
-            <h2>Welcome, <?php echo $firstName; ?></h2>
-
             <div class="account">
 
+            <h2>Welcome, <?php echo $firstName; ?></h2>
+            <hr>
+            
                 <a class="accountField" href="updateDetails.php">Update your details</a>
                 <hr>
 
